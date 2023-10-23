@@ -85,7 +85,7 @@ if (!(Get-Command rustlings -ErrorAction SilentlyContinue)) {
 
 # Checking whether Clippy is installed.
 # Due to a bug in Cargo, this must be done with Rustup: https://github.com/rust-lang/rustup/issues/1514
-$clippy = (rustup component list | Select-String "clippy" | Select-String "installed") | Out-String
+$clippy = (rustup component list | Select-string "clippy" | Select-string "installed") | Out-string
 if (!$clippy) {
     Write-Host "Installing the 'cargo-clippy' executable..."
     rustup component add clippy
